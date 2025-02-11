@@ -23,8 +23,8 @@ def create_task(request):
     except Exception as e:
         print(f"Encountered an errror {e}")
 
-    finally:
-        return render(request, 'content/create_task.html')
+    
+    return render(request, 'content/create_task.html')
 
 # Update Task Page
 def update_task(request, id):
@@ -37,8 +37,8 @@ def update_task(request, id):
             return redirect('home')
     except Exception as e:
         print(f'Updated faild: Due to Error {e}')
-    finally:
-        return render(request, 'content/update_task.html', {'task': task})
+    
+    return render(request, 'content/update_task.html', {'task': task})
 
 
 # Delete Task Page
@@ -50,7 +50,7 @@ def delete_task(request, id):
             task.delete()
             return redirect('home')
     except Exception as e:
-        print(f'Error  {e} Occured, Refreshing...')
+        print(f'Error  {e} Occured')
     
-    finally:
-        return render(request, 'content/delete_task.html', {'task': task})
+  
+    return render(request, 'content/delete_task.html', {'task': task})
