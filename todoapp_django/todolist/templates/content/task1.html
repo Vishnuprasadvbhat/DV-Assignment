@@ -1,0 +1,29 @@
+
+{% extends 'content/base.html' %}
+
+{% load static %}
+
+
+{% block body %}
+  <h1 style="text-align: center; ">Hello everyone!</h1>
+  <h1>Add Edit and Delete your TASK</h1>
+  <h1>Let's Save Time</h1>
+  <ul>
+    {% for task in tasks %}
+      <li>{{ task }}</li>
+    {% empty %}
+      <li>No Tasks</li>
+    {% endfor %}
+    
+    <!-- {% for p in order %}
+      <li>{{ p }}</li>
+    {% endfor %} -->
+
+  </ul>
+  <a href="{% url 'todolist:add' %}">Add a New Task</a>
+  <a href="{% url 'todolist:del' %}">Delete a Task
+    
+  </a>
+
+
+{% endblock %}

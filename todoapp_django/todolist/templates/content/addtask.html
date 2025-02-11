@@ -1,0 +1,16 @@
+{% extends "content/base.html" %}
+
+{% block body %}
+<a href="{% url 'todolist:task' %}"> Go to Home Page</a>
+
+ <div class="addtask">
+  <h1>Add task</h1>
+  <form action="{% url 'todolist:add' %}" method="post">
+    {% csrf_token %}
+    <!-- <input type="text", placeholder="Enter the task ", name="addtask">  -->
+    {{ form }}
+    <input type="submit"> 
+  </form>
+ </div>
+
+{% endblock %}

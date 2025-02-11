@@ -1,0 +1,19 @@
+{% extends 'content/base.html' %}
+
+{% block body%}
+
+<div class="del">
+  <ul>
+    {% for task in tasks %}
+      <li>{{ task }}</li>
+    {% empty %}
+      <li>No Tasks</li>
+    {% endfor %}
+  </ul>
+
+  <button>Delete Task   </button>
+
+</div>
+
+
+{% endblock %}
