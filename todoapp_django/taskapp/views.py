@@ -5,6 +5,9 @@ from .models import Task
 def home(request):
     try: 
         tasks = Task.objects.all()
+        # if tasks not in request.session:
+        #     request.session['tasks'] = []
+        
         return render(request, 'content/home.html', {'tasks': tasks})
     except:
         print('Task not found')
@@ -18,6 +21,9 @@ def create_task(request):
 
             if title and description:
                 tasks =Task.objects.create(title=title, description=description, completed=False)
+                # if 'tasks' not in request.session:
+                #     request.session['tasks'] = []
+                # request.session['tasks'] += [tasks.id]
                 tasks.save()
                 return redirect('home')
     except Exception as e:
@@ -48,6 +54,7 @@ def delete_task(request, id):
 
         if request.method == 'POST':
             task.delete()
+            # request.session['tasks'] -= [task]
             return redirect('home')
     except Exception as e:
         print(f'Error  {e} Occured')

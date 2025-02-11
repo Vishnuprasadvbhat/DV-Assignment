@@ -6,6 +6,8 @@
 #### Write a python program to find the unique words in the given sentence
 ##### Solution given in the folder "coding_questions" as "unique_words.py"
 
+---
+
 ### Task 2
 #### Rewrite the function to reduce time complexity.
 ##### Solution given in the folder "coding_questions" as "duplicates.py"
@@ -21,14 +23,21 @@ Use Flask (or Django/FastAPI) to create an API with the following endpoints:
 3. PUT /tasks/<task_id> → Update a task
 4. DELETE /tasks/<task_id> → Delete a task
 5. Store tasks in a list (or a database if comfortable).
-8. Ensure error handling (e.g., task not found, invalid input).
+6. Ensure error handling (e.g., task not found, invalid input).
 
+--- 
 
 ### In the todoapp_django folder the django project has been built 
 
 #### There are two project
 1. taskapp : The main project comprises listed above endpoints
 2. todolist : In this app i have creating api based on user sessions. There we have api like GET, POST, DELETE
+
+--- 
+
+# 1. TASKAPP
+
+## The taskapp has the requested assignments 
 
 ## Steps to run the project
 
@@ -55,7 +64,6 @@ http://127.0.0.1:8000/api/
 
 In the browser, add /api/tasks/create that will re-route to the create page where you can add new task
 
-`http://127.0.0.1:8000/api/tasks/create/`
 
 ```
 
@@ -84,3 +92,40 @@ http://127.0.0.1:8000/api/tasks/delete/int:<id>/
 #### 5. Store tasks in a list (or a database if comfortable).
 
 ##### The data is stored in the PostgreSQL
+
+![Image.Png](./images/image.png)
+
+##### Database Config()
+
+```
+
+{ 
+  'ENGINE': 'django.db.backends.postgresql',
+  'NAME': 'loginregister', 
+}
+
+```
+
+6. Ensure error handling (e.g., task not found, invalid input).
+Implemented try and Except for the functions used in veiws.py 
+
+``` py
+
+def update_task(request, id):
+    try: 
+        task = get_object_or_404(Task, id=id)
+
+        if request.method == 'POST':
+            task.completed = True
+            task.save()
+            return redirect('home')
+    except Exception as e:
+        print(f'Updated faild: Due to Error {e}')
+    
+    return render(request, 'content/update_task.html', {'task': task})
+
+```
+
+
+
+# 2. TASKAPP
