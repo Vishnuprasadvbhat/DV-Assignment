@@ -13,7 +13,7 @@
                 
                 <div>
                     <strong>{{ item.title }}</strong> - {{ item.description }}
-                    <span class="badge {% if task.completed %}bg-success{% else %}bg-warning{% endif %}">
+                    <span class="badge {% if item.completed %}bg-success{% else %}bg-warning{% endif %}">
                         {% if item.completed %}Completed{% else %}Pending{% endif %}
                     </span>
                 </div> 

@@ -25,11 +25,8 @@ def update_task(request, id):
     task = get_object_or_404(Task, id=id)
 
     if request.method == 'POST':
-        title = request.POST.get('title') 
-        description = request.POST.get('description')
-        if title and description:
-            task= Task.objects.update(id=id, title=title,description=description, completed = True)
-            task.save()
+        task.completed = True
+        task.save()
         return redirect('home')
 
     return render(request, 'content/update_task.html', {'task': task})
