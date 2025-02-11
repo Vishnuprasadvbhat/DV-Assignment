@@ -22,3 +22,65 @@ Use Flask (or Django/FastAPI) to create an API with the following endpoints:
 4. DELETE /tasks/<task_id> → Delete a task
 5. Store tasks in a list (or a database if comfortable).
 8. Ensure error handling (e.g., task not found, invalid input).
+
+
+### In the todoapp_django folder the django project has been built 
+
+#### There are two project
+1. taskapp : The main project comprises listed above endpoints
+2. todolist : In this app i have creating api based on user sessions. There we have api like GET, POST, DELETE
+
+## Steps to run the project
+
+### To navigate to the project:
+
+#### In the terminal
+`cd todoapp_django`
+
+`python manage.py runserver` to run the server
+
+
+### The API Endpoints as follows for the taskapp
+
+#### 1. GET /tasks → Get all tasks
+```
+
+In the browser, add /api that will re-route to the home page
+
+http://127.0.0.1:8000/api/
+
+```
+
+#### 2. POST /tasks → Add a new task 
+
+In the browser, add /api/tasks/create that will re-route to the create page where you can add new task
+
+`http://127.0.0.1:8000/api/tasks/create/`
+
+```
+
+http://127.0.0.1:8000/api/tasks/create/
+
+```
+#### 3. PUT /tasks/<task_id> → Update a task
+
+In the browser, add /api/tasks/update/int:<id>/  that will re-route to the update page where you can toggle the task to its completion
+
+```
+
+http://127.0.0.1:8000/api/tasks/update/int:<id>/
+
+```
+
+
+#### 4. DELETE /tasks/<task_id> → Delete a task
+In the browser, add /api/tasks/delete/int:<id>/  that will re-route to the delete page where we get a page asking for confirmation to delete the task
+```
+http://127.0.0.1:8000/api/tasks/delete/int:<id>/
+
+```
+
+
+#### 5. Store tasks in a list (or a database if comfortable).
+
+##### The data is stored in the PostgreSQL
